@@ -187,6 +187,7 @@ public:
 	AutoString GetIconFileName();
 	void GetMaximized(bool *isMaximized);
 	void GetMinimized(bool *isMinimized);
+	void GetHidden(bool* isHidden);
 	void GetPosition(int *x, int *y);
 	void GetResizable(bool *resizable);
 	unsigned int GetScreenDpi();
@@ -205,6 +206,7 @@ public:
 	void SetFullScreen(bool fullScreen);
 	void SetGrantBrowserPermissions(bool grant);
 	void SetIconFile(AutoString filename);
+	void SetHidden(bool hidden);
 	void SetMaximized(bool maximized);
 	void SetMinimized(bool minimized);
 	void SetPosition(int x, int y);

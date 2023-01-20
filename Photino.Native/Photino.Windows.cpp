@@ -441,6 +441,12 @@ void Photino::GetMinimized(bool* isMinimized)
 	if (lStyles & WS_MINIMIZE) *isMinimized = true;
 }
 
+void Photino::GetHidden(bool* isHidden)
+{
+	LONG lStyles = GetWindowLong(_hWnd, GWL_STYLE);
+	if (!(lStyles & WS_VISIBLE)) *isHidden = true;
+}
+
 void Photino::GetPosition(int* x, int* y)
 {
 	RECT rect = {};
@@ -565,6 +571,14 @@ void Photino::SetIconFile(AutoString filename)
 	}
 
 	this->_iconFileName = filename;
+}
+
+void Photino::SetHidden(bool hidden)
+{
+	if (hidden)
+		ShowWindow(_hWnd, SW_HIDE);
+	else
+		ShowWindow(_hWnd, SW_SHOW);
 }
 
 void Photino::SetMinimized(bool minimized)
