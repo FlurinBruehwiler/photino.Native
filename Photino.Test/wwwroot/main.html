@@ -32,6 +32,14 @@
         function ClearBrowserAutoFill() {
             window.external.sendMessage('clearbrowserautofill');
         }
+        
+        function SkipTaskbar() {
+            window.external.sendMessage('skipTaskbar');
+        }
+
+        function DontSkipTaskbar() {
+            window.external.sendMessage('dontSkipTaskbar');
+        }
 
         function Hide() {
             window.external.sendMessage('hide');
@@ -191,6 +199,8 @@
     <button id="startbutton">Take Picture</button>
     <button onclick="Close()">Close</button>
     <br>
+    <button onclick="SkipTaskbar()">Skip Taskbar</button>
+    <button onclick="DontSkipTaskbar()">Dont Skip Taskbar</button>
     <button onclick="Hide()">Hide</button>
     <button onclick="Minimize()">Minimize</button>
     <button onclick="Maximize()">Maximize</button>

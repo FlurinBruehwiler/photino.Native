@@ -170,6 +170,10 @@ extern "C"
 		instance->SetIconFile(filename);
 	}
 
+    EXPORTED void Photino_SetSkipTaskbar(Photino* instance, bool skipTaskbar)
+    {
+        instance->SetSkipTaskbar(skipTaskbar);
+    }
 
 	EXPORTED void Photino_SetHidden(Photino* instance, bool hidden)
 	{

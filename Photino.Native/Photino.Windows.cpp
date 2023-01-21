@@ -26,6 +26,7 @@ HINSTANCE Photino::_hInstance;
 HWND messageLoopRootWindowHandle;
 std::map<HWND, Photino*> hwndToPhotino;
 wchar_t _webview2RuntimePath[MAX_PATH];
+ITaskbarList* pTaskbar = NULL;
 
 
 struct InvokeWaitInfo
@@ -213,6 +214,12 @@ Photino::Photino(PhotinoInitParams* initParams)
 	if (initParams->CenterOnInitialize)
 		Photino::Center();
 
+	if (initParams->SkipTaskbar)
+		SetSkipTaskbar(true);
+
+	if (initParams->Hidden)
+		SetHidden(true);
+
 	if (initParams->Minimized)
 		SetMinimized(true);
 
@@ -224,6 +231,10 @@ Photino::Photino(PhotinoInitParams* initParams)
 
 	if (initParams->Topmost)
 		SetTopmost(true);
+
+	CoInitialize(0);
+	CoCreateInstance(CLSID_TaskbarList, 0, CLSCTX_INPROC_SERVER, IID_ITaskbarList, (void**)&pTaskbar);
+	pTaskbar->HrInit();
 
 	this->_toastHandler = new WinToastHandler(this);
 	WinToast::instance()->initialize();
@@ -571,6 +582,14 @@ void Photino::SetIconFile(AutoString filename)
 	}
 
 	this->_iconFileName = filename;
+}
+
+void Photino::SetSkipTaskbar(bool skipTaskbar)
+{
+	if (skipTaskbar)
+		pTaskbar->DeleteTab(_hWnd);
+	else
+		pTaskbar->AddTab(_hWnd); 
 }
 
 void Photino::SetHidden(bool hidden)

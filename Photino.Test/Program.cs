@@ -252,6 +252,14 @@ namespace PhotinoNET
             {
                 //currentWindow.ClearBrowserAutoFill();
             }
+            else if (string.Compare(message, "skipTaskbar", true) == 0)
+            {
+                currentWindow.SetSkipTaskbar(true);
+            }
+            else if (string.Compare(message, "dontSkipTaskbar", true) == 0)
+            {
+                currentWindow.SetSkipTaskbar(false);
+            }
             else if (string.Compare(message, "hide", true) == 0)
             {
                 currentWindow.SetHidden(!currentWindow.Hidden);

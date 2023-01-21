@@ -90,6 +90,7 @@ struct PhotinoInitParams
 	bool ContextMenuEnabled;
 	bool DevToolsEnabled;
 	bool FullScreen;
+	bool SkipTaskbar;
 	bool Hidden;
 	bool Maximized;
 	bool Minimized;
@@ -207,6 +208,7 @@ public:
 	void SetFullScreen(bool fullScreen);
 	void SetGrantBrowserPermissions(bool grant);
 	void SetIconFile(AutoString filename);
+	void SetSkipTaskbar(bool skip);
 	void SetHidden(bool hidden);
 	void SetMaximized(bool maximized);
 	void SetMinimized(bool minimized);
