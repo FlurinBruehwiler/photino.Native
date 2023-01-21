@@ -165,6 +165,12 @@ extern "C"
 		instance->SetIconFile(filename);
 	}
 
+
+	EXPORTED void Photino_SetHidden(Photino* instance, bool hidden)
+	{
+		instance->SetHidden(hidden);
+	}
+
 	EXPORTED void Photino_SetMaximized(Photino* instance, bool maximized)
 	{
 		instance->SetMaximized(maximized);

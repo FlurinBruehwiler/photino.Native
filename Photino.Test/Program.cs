@@ -250,7 +250,7 @@ namespace PhotinoNET
             }
             else if (string.Compare(message, "clearbrowserautofill", true) == 0)
             {
-                currentWindow.ClearBrowserAutoFill();
+                //currentWindow.ClearBrowserAutoFill();
             }
             else if (string.Compare(message, "minimize", true) == 0)
             {

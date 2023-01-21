@@ -90,6 +90,7 @@ struct PhotinoInitParams
 	bool ContextMenuEnabled;
 	bool DevToolsEnabled;
 	bool FullScreen;
+	bool Hidden;
 	bool Maximized;
 	bool Minimized;
 	bool Resizable;
@@ -185,9 +186,9 @@ public:
 	void GetFullScreen(bool *fullScreen);
 	void GetGrantBrowserPermissions(bool *grant);
 	AutoString GetIconFileName();
+	void GetHidden(bool* isHidden);
 	void GetMaximized(bool *isMaximized);
 	void GetMinimized(bool *isMinimized);
-	void GetHidden(bool* isHidden);
 	void GetPosition(int *x, int *y);
 	void GetResizable(bool *resizable);
 	unsigned int GetScreenDpi();
