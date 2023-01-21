@@ -7,6 +7,7 @@
 #include <wrl.h>
 #include <windows.h>
 #include <algorithm>
+#include <dwmapi.h>
 
 #include "Photino.Windows.DarkMode.h"
 
@@ -265,6 +266,10 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		if (IsDarkModeEnabled()) 
 		{
 			RefreshNonClientArea(hwnd);
+		}
+		if (hwnd) {
+			DWM_WINDOW_CORNER_PREFERENCE preference = DWMWCP_ROUND;
+			DwmSetWindowAttribute(hwnd, DWMWA_WINDOW_CORNER_PREFERENCE, &preference, sizeof(preference));
 		}
 		break;
 	}
