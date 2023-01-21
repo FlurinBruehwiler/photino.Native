@@ -252,6 +252,10 @@ namespace PhotinoNET
             {
                 //currentWindow.ClearBrowserAutoFill();
             }
+            else if (string.Compare(message, "hide", true) == 0)
+            {
+                currentWindow.SetHidden(!currentWindow.Hidden);
+            }
             else if (string.Compare(message, "minimize", true) == 0)
             {
                 currentWindow.SetMinimized(!currentWindow.Minimized);
@@ -400,6 +404,7 @@ namespace PhotinoNET
             sb.AppendLine($"Resizable: {currentWindow.Resizable}");
             sb.AppendLine($"Screen DPI: {currentWindow.ScreenDpi}");
             sb.AppendLine($"Topmost: {currentWindow.Topmost}");
+            sb.AppendLine($"Hidden: {currentWindow.Hidden}");
             sb.AppendLine($"Maximized: {currentWindow.Maximized}");
             sb.AppendLine($"Minimized: {currentWindow.Minimized}");
 

@@ -33,6 +33,14 @@
             window.external.sendMessage('clearbrowserautofill');
         }
 
+        function Hide() {
+            window.external.sendMessage('hide');
+
+            setTimeout(() => {
+                window.external.sendMessage('hide');
+            }, 1000)
+        }
+
         function Minimize() {
             window.external.sendMessage('minimize');
         }
@@ -183,6 +191,7 @@
     <button id="startbutton">Take Picture</button>
     <button onclick="Close()">Close</button>
     <br>
+    <button onclick="Hide()">Hide</button>
     <button onclick="Minimize()">Minimize</button>
     <button onclick="Maximize()">Maximize</button>
     <button onclick="SetContextMenuEnabled()">Context Menu</button>

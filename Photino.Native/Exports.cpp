@@ -75,6 +75,11 @@ extern "C"
 		instance->GetGrantBrowserPermissions(grant);
 	}
 
+	EXPORTED void Photino_GetHidden(Photino* instance, bool* isHidden)
+	{
+		instance->GetHidden(isHidden);
+	}
+
 	EXPORTED void Photino_GetMaximized(Photino* instance, bool* isMaximized)
 	{
 		instance->GetMaximized(isMaximized);
